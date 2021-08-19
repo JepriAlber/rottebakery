@@ -28,6 +28,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                             while ($data=mysqli_fetch_assoc($dataProduk)) { ?>
                                 <form action="proses.php" method="POST">
                                     <div class="form-group">
+                                        <input type="hidden" value="<?=$data['produk_id'];?>" name="produk_id">
                                         <label for="nama">Nama Produk</label>
                                         <input type="text" name="nama" id="nama" class="form-control" required value="<?=$data['nama'];?>">
                                     </div>
@@ -55,7 +56,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                                             <option value="B">B</option>
                                         </select>
                                     </div>
-                                    <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda yakin menambah produk ini?')" name="simpan">Simpan</button>
+                                    <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda ingin melakukan perubahan?')" name="update">Simpan</button>
                                 </form>
                     <?php    }
                         ?>

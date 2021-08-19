@@ -8,10 +8,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css');?>" >
+    <link rel="stylesheet" href="<?=base_url('assets/datatables/jquery.dataTables.min.css');?>" >
+    <script src="<?=base_url('assets/js/jquery.js');?>"></script> 
 
     <title>Rotte</title>
   </head>
   <body>
+  
     <div class="container">
         <?php 
             if ($_SESSION['level']==0) { ?>
