@@ -19,37 +19,45 @@ $dataProduk = mysqli_query($con,"SELECT * FROM produk") or die(mysqli_error($con
         </div>
      <?php } unset($_SESSION['pesan']); unset($_SESSION['kondisi']); ?>
   </div>
-    <a href="<?=base_url('dataproduk/add.php');?>" class="btn btn-primary btn-sm mb-3">Tambah Produk</a>
-<div class="row">
-  <div class="col">
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nama Produk</th>
-      <th scope="col">Harga</th>
-      <th scope="col">Toko</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-        <?php
-        $no=1; 
-        foreach ($data as $datapro) { ?>
-            <tr>
-                <td><?=$no;?></td>
-                <td><?=$datapro['nama'];?></td>
-                <td><?=$datapro['harga'];?>/<?=$datapro['jenis'];?></td>
-                <td><?=$datapro['toko'];?></td>
-                <td>
-                    <a href="">Edit</a>|
-                    <a href="">Delete</a>
-                </td>
-            </tr>
-      <?php  }?>
-  </tbody>
-</table>
+    <a href="<?=base_url('dataproduk/add.php');?>" class="btn btn-primary btn-sm mt-3 mb-3">Tambah Produk</a>
+  <div class="row">
+    <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Stok</th>
+                    <th scope="col">Toko</th>
+                    <th scope="col">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <?php
+                      $no=1; 
+                      foreach ($data as $datapro) { ?>
+                          <tr>
+                              <td><?=$no;?></td>
+                              <td><?=$datapro['nama'];?></td>
+                              <td><?=$datapro['stok'];?></td>
+                              <td><?=$datapro['harga'];?>/<?=$datapro['jenis'];?></td>
+                              <td><?=$datapro['toko'];?></td>
+                              <td>
+                                  <a href="" class="btn btn-warning btn-sm">Edit</a>|
+                                  <a href="" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                          </tr>
+                    <?php  }?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
-</div>
 </div>
 <?php require_once "../footer.php"; ?>
