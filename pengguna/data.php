@@ -42,6 +42,7 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
                     <th scope="col">Nama User</th>
                     <th scope="col">Email</th>
                     <th scope="col">Level</th>
+                    <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,10 +53,12 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
                               <td><?=$no++;?></td>
                               <td><?=$dataPeng['nama'];?></td>
                               <td><?=$dataPeng['email'];?></td>
-                <?php if ($data['level']==1) { ?>
-                              <td>Admin (akses toko A & B)</td>
-                 <?php      }elseif($data['level']==2){ ?>
-                               <td>User (akses toko A)</td>
+                <?php if ($dataPeng['level']==1) { ?>
+                              <td>Super User (Toko A & B)</td>
+                 <?php      }elseif($dataPeng['level']==2){ ?>
+                               <td>User (Toko A)</td>
+                <?php }elseif($dataPeng['level']==3){ ?>
+                               <td>User (Toko B)</td>
                 <?php } ?>
                               <td>
                                   <a href="edit.php?id=<?=$dataPeng['pengguna_id'];?>" class="btn btn-warning btn-sm">Edit</a> |

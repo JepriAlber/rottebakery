@@ -15,7 +15,6 @@
   </head>
   <body>
   
-    <div class="container">
         <?php 
             if ($_SESSION['level']==0) { ?>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -47,6 +46,6 @@
             </nav>
        <?php  }
         ?>
-    </div>
+
 
     
