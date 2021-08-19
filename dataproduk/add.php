@@ -1,4 +1,9 @@
-<?php require_once "../header.php"; ?>
+<?php
+require_once "../header.php"; 
+if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'] !==0) {
+    echo "<script>window.location='".base_url('auth/login.php')."'</script>";
+  }else{
+?>
     <div class="container mt-2">
     <a href="data.php" class="btn-warning btn-sm btn mb-2">Kembali</a>
         <div class="row">
@@ -49,4 +54,6 @@
             </div>
         </div>
     </div>
-<?php require_once "../footer.php"; ?>
+<?php
+}
+ require_once "../footer.php"; ?>
