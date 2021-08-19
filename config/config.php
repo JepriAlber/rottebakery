@@ -13,7 +13,7 @@ include_once "conn.php";
 
 function base_url($url = null)
 {
-    $base_url = "http://localhost/rotte";
+    $base_url = "http://localhost/rottebakery";
 
         if ($url != null) {
             return $base_url."/".$url;
