@@ -36,7 +36,7 @@
             $_SESSION['pesan']		= "Berhasil melakukan perbaikan data!";
             $_SESSION['kondisi']	= "alert-success";
         } else {
-            header('location:add.php');
+            header('location:data.php');
             $_SESSION['pesan']		= "Gagal melakukan perbaikan data!";
             $_SESSION['kondisi']	= "alert-danger";
         }

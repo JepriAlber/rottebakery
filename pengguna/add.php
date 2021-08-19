@@ -47,7 +47,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                                     <option value="3">User (Toko B)</option>
                                 </select>
                             </div>
-                            <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda yakin menambah produk ini?')" name="simpan">Simpan</button>
+                            <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda yakin menambah pengguna App?')" name="simpan">Simpan</button>
                         </form>
                     </div>
                 </div>

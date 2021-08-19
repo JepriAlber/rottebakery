@@ -31,6 +31,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                             while ($data=mysqli_fetch_assoc($dataPengguna)) { ?>
                                 <form action="proses.php" method="POST">
                                     <div class="form-group">
+                                        <input type="hidden" value="<?=$data['pengguna_id'];?>" name="pengguna_id">
                                         <label for="nama">Nama Pengguna</label>
                                         <input type="text" name="nama" id="nama" class="form-control" required value="<?=$data['nama'];?>">
                                     </div>
@@ -45,7 +46,13 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                                     <div class="form-group">
                                         <label for="level">Level</label>
                                         <select class="form-control" name="level" required>
-                                            <option value="<?=$data['level'];?>"><?=$data['level'];?></option>
+                                        <?php if ($data['level']==1) { ?>
+                                            <option value="<?=$data['level'];?>">Super User (Toko A & B)</option>
+                                        <?php      }elseif($data['level']==2){ ?>
+                                               <option value="<?=$data['level'];?>">User (Toko A)</option>
+                                        <?php }elseif($data['level']==3){ ?>
+                                                <option value="<?=$data['level'];?>">User (Toko B)</option>
+                                        <?php } ?>
                                             <option value="1">Super User (Toko A & B)</option>
                                             <option value="2">User (Toko A)</option>
                                             <option value="3">User (Toko B)</option>
