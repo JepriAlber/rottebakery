@@ -16,6 +16,10 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
 ?>
 <div class="container">
     <h1>Toko : <?=$toko;?></h1>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+      Print Laporan
+    </button>
     <div class="row">
           <div class="col">
             <?php if (isset($_SESSION['pesan'])) { ?>
@@ -66,6 +70,36 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
             </div>
           </div>
         </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Print Laporan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="print.php" method="POST">
+          <div class="form-group">
+            <label for="dari">Dari Tanggal</label>
+            <input type="date" name="dari" id="dari" class="form-control">
+          </div>
+          <input type="hidden" name="toko" value="<?=$toko;?>">
+          <div class="form-group">
+            <label for="sampai">Sampai</label>
+            <input type="date" name="sampai" id="sampai" class="form-control">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" target="_blank" name="print">Print</button>
+      </div>
+      </form>
     </div>
   </div>
 </div>
