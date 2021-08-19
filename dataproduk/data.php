@@ -55,7 +55,7 @@ $dataProduk = mysqli_query($con,"SELECT * FROM produk") or die(mysqli_error($con
                               <td><?=$datapro['toko'];?></td>
                               <td>
                                   <a href="edit.php?id=<?=$datapro['produk_id'];?>" class="btn btn-warning btn-sm">Edit</a> |
-                                  <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                  <a href="delete.php?id=<?=$datapro['produk_id'];?>" onclick="return confirm('Apakah yakin hapus data ini?')" class="btn btn-danger btn-sm">Delete</a>
                               </td>
                           </tr>
                     <?php  }?>
