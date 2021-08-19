@@ -35,7 +35,7 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped table-bordered table-hover" id="dataproduk">
+              <table class="table table-striped table-bordered table-hover" id="datapengguna">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -76,7 +76,7 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
 </div>
     <script type="text/javascript">
         $(document).ready( function () {
-          $('#dataproduk').DataTable();
+          $('#datapengguna').DataTable();
         } );
 		</script>
 <?php 
