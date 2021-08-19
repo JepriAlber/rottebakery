@@ -60,8 +60,21 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 <input type="number" name="stok_terjual" id="stok_terjual" class="form-control">
             </div>
             <div class="form-group" id="form-total_pembelian">
-                <label for="total_pembelian">Total Pembelian</label>
+                <label for="total_pembelian">Total Harga Asli</label>
                 <input type="text" name="total_pembelian" id="total_pembelian" class="form-control" readonly>
+            </div>
+            <div class="form-group" id="form-tipe">
+                <label for="tipe">Tipe Pembayaran</label>
+                <select class="form-control" name="tipe" id="tipe" required>
+                    <option>-Pilih-</option>
+                    <option value="0">Cash</option>
+                    <option value="0.15">Gopay</option>
+                    <option value="0.05">User (Toko B)</option>
+                </select>
+            </div>
+            <div class="form-group" id="form-fixbayar">
+                <label for="fixbayar">Harga yang harus dibayar</label>
+                <input type="text" name="fixbayar" id="fixbayar" class="form-control" readonly>
             </div>
             <div class="form-group" id="form-bayar">
                 <label for="bayar">Bayar</label>
@@ -72,7 +85,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 <input type="text" name="kembalian" id="kembalian" class="form-control" readonly>
             </div>
 
-            <button class="btn btn-sm btn-primary" name="simpan">Simpan</button>
+            <button class="btn btn-block btn-primary" name="simpan">Simpan</button>
           </form>
           
           </div>
@@ -84,9 +97,11 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
        $('#form-stok').hide();
        $('#form-stok_terjual').hide();
        $('#form-total_pembelian').hide();
+       $('#form-tipe').hide();
+       $('#form-fixbayar').hide();
        $('#form-bayar').hide();
        $('#form-kembalian').hide();
-
+                            
         $('#produk').change(function(){
             //variabel dari nilai combo box kota kabupaten
             var id_kokab = $('#produk').val();
@@ -99,6 +114,12 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 data:"produk="+id_kokab,
                 success:function(data){
                     $('#form-stok').show();
+                    $('#form-stok_terjual').show();
+                    $('#form-total_pembelian').show();
+                    $('#form-tipe').show();
+                    $('#form-fixbayar').show();
+                    $('#form-bayar').show();
+                    $('#form-kembalian').show();
                     $('#stok').html(data);
                 }
             });
@@ -108,16 +129,19 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 url:"datastok.php",
                 data:"produkharga="+id_kokab,
                 success:function(data){
-                    $('#form-stok').show();
-                    $('#form-stok_terjual').show();
-                    $('#form-total_pembelian').show();
-                    $('#form-bayar').show();
-                    $('#form-kembalian').show();
                     $('#nilaiharga').html(data);
                 }
             });
             
         });
+
+        $( "#tipe").change(function() {
+                var pembelian  = parseInt($("#total_pembelian").val());
+                var tipe = parseFloat($("#tipe").val());
+                var diskon = tipe * pembelian;
+                var fixbayar = pembelian - diskon;
+                $("#fixbayar").val(fixbayar);
+            });
 
         $(document).ready(function() {
             
@@ -129,10 +153,12 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 $("#total_pembelian").val(total);
             });
 
+           
+
             $( "#bayar").keyup(function() {
-                var total_pembelian  = parseInt($("#total_pembelian").val());
+                var fixbayar  = parseInt($("#fixbayar").val());
                 var bayar = parseInt($("#bayar").val());
-                var total = bayar - total_pembelian;
+                var total = bayar - fixbayar;
                
                 $("#kembalian").val(total);
             });
