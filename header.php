@@ -26,7 +26,7 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                   <a class="nav-item nav-link active" href="<?=base_url('dataproduk');?>">Produk <span class="sr-only">(current)</span></a>
-                  <a class="nav-item nav-link disabled" href="#">User</a>
+                  <a class="nav-item nav-link disabled" href="<?=base_url('pengguna');?>">User</a>
                   <a class="nav-item nav-link disabled" href="<?=base_url('auth/logout.php');?>">Logout</a>
                   </div>
               </div>
