@@ -26,6 +26,7 @@
                   <div class="navbar-nav">
                   <a class="nav-item nav-link" href="<?=base_url('dataproduk');?>">Produk <span class="sr-only">(current)</span></a>
                   <a class="nav-item nav-link" href="<?=base_url('pengguna');?>">Pengguna APP</a>
+                  <a class="nav-item nav-link" href="<?=base_url('transaksi/transaksi-pimpinan.php');?>">Data Transaksi</a>
                   <a class="nav-item nav-link" href="<?=base_url('auth/logout.php');?>">Logout</a>
                   </div>
               </div>

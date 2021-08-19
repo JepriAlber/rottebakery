@@ -1,13 +1,9 @@
 <?php require_once "../header.php"; 
-if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'] < 2) {
+if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'] != 0) {
   echo "<script>window.location='".base_url('auth/login.php')."'</script>";
 }else{
-    if ($_SESSION['level']==2) {
-        $toko = "A";
-    }elseif($_SESSION['level']==3){
-        $toko = "B";
-    }
-$dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,transaksi WHERE produk.produk_id=transaksi.produk_id AND produk.toko='$toko' ORDER BY transaksi.waktu DESC") or die(mysqli_error($con));
+
+$dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* FROM produk,transaksi WHERE produk.produk_id=transaksi.produk_id ORDER BY transaksi.waktu DESC") or die(mysqli_error($con));
     $data = [];
         while ($dt=mysqli_fetch_assoc($dataTransaksi)) {
             $data[]=$dt;
@@ -15,7 +11,6 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
         
 ?>
 <div class="container">
-    <h1>Toko : <?=$toko;?></h1>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#exampleModal">
       Print Laporan
@@ -39,7 +34,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
     <div class="col">
         <div class="card">
           <div class="card-header">
-              Data Transaksi Toko <strong><?=$toko; ?></strong>
+              Data Transaksi Semua Toko
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -50,6 +45,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Sok Terjual</th>
                     <th scope="col">Total Harga</th>
+                    <th scope="col">Toko</th>
                     <th scope="col">Waktu</th>
                   </tr>
                 </thead>
@@ -61,7 +57,8 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
                               <td><?=$no++;?></td>
                               <td><?=$dataT['nama'];?></td>
                               <td><?=$dataT['stok_terjual'];?></td>
-                              <td><?=rupiah($dataT['total_transaksi']);?></td>
+                              <td><?=rupiah($dataT['total_transaksi'])?></td>
+                              <td><?=$dataT['toko'];?></td>
                               <td><?=date('d-m-y H:i:s',strtotime($dataT['waktu']));?></td>
                           </tr>
                     <?php  }?>
@@ -84,7 +81,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
         </button>
       </div>
       <div class="modal-body">
-        <form action="print.php" method="POST">
+        <form action="printpimpinan.php" method="POST">
           <div class="form-group">
             <label for="dari">Dari Tanggal</label>
             <input type="date" name="dari" id="dari" class="form-control">
