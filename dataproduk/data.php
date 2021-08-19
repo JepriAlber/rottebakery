@@ -30,6 +30,9 @@ $dataProduk = mysqli_query($con,"SELECT * FROM produk") or die(mysqli_error($con
     <div class="row">
     <div class="col">
         <div class="card">
+          <div class="card-header">
+            Produk
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-striped table-bordered table-hover" id="dataproduk">

@@ -21,6 +21,9 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
+                    <div class="card-header">
+                        Tambah Produk
+                    </div>
                     <div class="card-body">
                         <form action="proses.php" method="POST">
                             <div class="form-group">

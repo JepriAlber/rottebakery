@@ -30,6 +30,9 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
     <div class="row">
     <div class="col">
         <div class="card">
+          <div class="card-header">
+              Data Pengguna Aplikasi
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-striped table-bordered table-hover" id="dataproduk">
@@ -50,9 +53,9 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
                               <td><?=$dataPeng['nama'];?></td>
                               <td><?=$dataPeng['email'];?></td>
                 <?php if ($data['level']==1) { ?>
-                              <td>Admin (akses 2 toko)</td>
+                              <td>Admin (akses toko A & B)</td>
                  <?php      }elseif($data['level']==2){ ?>
-                               <td>User (akses 1 toko)</td>
+                               <td>User (akses toko A)</td>
                 <?php } ?>
                               <td>
                                   <a href="edit.php?id=<?=$dataPeng['pengguna_id'];?>" class="btn btn-warning btn-sm">Edit</a> |

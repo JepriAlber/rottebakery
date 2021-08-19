@@ -23,6 +23,9 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card">
+                    <div class="card-header">
+                        Edit Produk
+                    </div>
                     <div class="card-body">
                         <?php 
                             while ($data=mysqli_fetch_assoc($dataProduk)) { ?>
