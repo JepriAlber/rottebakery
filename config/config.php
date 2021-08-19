@@ -32,4 +32,10 @@ include_once "conn.php";
         
         return $random_string;
     }
+    function rupiah($angka){
+	
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
+     
+    }
 ?>
