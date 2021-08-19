@@ -1,6 +1,6 @@
 <?php
 require_once "../header.php"; 
-if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'] !==0) {
+if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'] !=0) {
     echo "<script>window.location='".base_url('auth/login.php')."'</script>";
   }else{
       $produk_id    = @$_GET['id'];

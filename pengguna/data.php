@@ -1,5 +1,5 @@
 <?php require_once "../header.php"; 
-if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'] !==0) {
+if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'] !=0) {
   echo "<script>window.location='".base_url('auth/login.php')."'</script>";
 }else{
 $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(mysqli_error($con));

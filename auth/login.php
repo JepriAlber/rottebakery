@@ -32,7 +32,7 @@
                             $_SESSION['login']    = true;
                             $_SESSION['user_id']     = $dataUser['pengguna_id'];
                             $_SESSION['user']     = $dataUser['nama'];
-                            $_SESSION['level']    = $dataUser['level'];
+                            $_SESSION['level']  = $dataUser['level'];
                             
                             echo "<script>window.location='".base_url()."'</script>";
                         }else { ?>
