@@ -45,9 +45,13 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) && $_SESSION['level'
                             </div>
                             <div class="form-group">
                                 <label for="toko">Toko</label>
-                                <input type="text" name="toko" id="toko" class="form-control" required>
+                                <select class="form-control" name="toko" required>
+                                    <option>-Pilih-</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                </select>
                             </div>
-                            <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda yakin menambah produk ini?')" name="simpan">Simpan</button>
+                            <button class="btn-primary btn-block btn" onclick="return confirm('Apakah anda yakin melakukan perubahan?')" name="edit">Simpan</button>
                         </form>
                     </div>
                 </div>

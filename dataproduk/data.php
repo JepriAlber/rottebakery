@@ -54,7 +54,7 @@ $dataProduk = mysqli_query($con,"SELECT * FROM produk") or die(mysqli_error($con
                               <td><?=$datapro['harga'];?>/<?=$datapro['jenis'];?></td>
                               <td><?=$datapro['toko'];?></td>
                               <td>
-                                  <a href="" class="btn btn-warning btn-sm">Edit</a>|
+                                  <a href="edit.php?id=<?=$datapro['produk_id'];?>" class="btn btn-warning btn-sm">Edit</a>|
                                   <a href="" class="btn btn-danger btn-sm">Delete</a>
                               </td>
                           </tr>
