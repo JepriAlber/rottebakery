@@ -60,5 +60,29 @@
                         }
                     }
 
+    }elseif (isset($_POST['addstok'])) {
+        require_once "../config/config.php";
+        $produk_id      = trim(mysqli_escape_string($con,$_POST['produk_id']));
+        $stok_lama      = ucwords(trim(mysqli_escape_string($con,$_POST['stok_lama'])));
+        $stok_tambahan  = trim(mysqli_escape_string($con,$_POST['stok_tambahan']));
+
+            if ($stok_tambahan < 0) {
+                header('location:data.php');
+                $_SESSION['pesan']		= "Penambahan stok gagal dilakukan";
+                $_SESSION['kondisi']	= "alert-danger";
+            }else{
+                $stok  = $stok_lama+$stok_tambahan;
+                $updateData = mysqli_query($con,"UPDATE produk SET stok=$stok WHERE produk_id=$produk_id") or die(mysqli_error($con));
+                
+                    if ($updateData == TRUE) {
+                        header('location:data.php');
+                        $_SESSION['pesan']		= "Penambahan Stok berhasil dilakukan";
+                        $_SESSION['kondisi']	= "alert-success";
+                    } else {
+                        header('location:data.php');
+                        $_SESSION['pesan']		= "Penambahan stok gagal dilakukan!";
+                        $_SESSION['kondisi']	= "alert-danger";
+                    }
+            }
     }
 ?>
