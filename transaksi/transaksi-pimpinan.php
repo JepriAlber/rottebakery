@@ -3,7 +3,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
   echo "<script>window.location='".base_url('auth/login.php')."'</script>";
 }else{
 
-$dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* FROM produk,transaksi WHERE produk.produk_id=transaksi.produk_id ORDER BY transaksi.waktu DESC") or die(mysqli_error($con));
+$dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,user.nama as nama_user,transaksi.* FROM produk,transaksi,user WHERE produk.produk_id=transaksi.produk_id AND user.pengguna_id=transaksi.pengguna_id ORDER BY transaksi.waktu DESC") or die(mysqli_error($con));
     $data = [];
         while ($dt=mysqli_fetch_assoc($dataTransaksi)) {
             $data[]=$dt;
@@ -42,6 +42,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* F
                 <thead>
                   <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Nama User</th>
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Sok Terjual</th>
                     <th scope="col">Total Harga</th>
@@ -55,6 +56,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* F
                       foreach ($data as $dataT) { ?>
                           <tr>
                               <td><?=$no++;?></td>
+                              <td><?=$dataT['nama_user'];?></td>
                               <td><?=$dataT['nama'];?></td>
                               <td><?=$dataT['stok_terjual'];?></td>
                               <td><?=rupiah($dataT['total_transaksi'])?></td>
