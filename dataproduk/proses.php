@@ -39,16 +39,26 @@
             $jenis          = trim(mysqli_escape_string($con,$_POST['jenis']));
             $toko           = trim(mysqli_escape_string($con,$_POST['toko']));
 
-            $updateData = mysqli_query($con,"UPDATE produk SET nama='$nama',harga=$harga,jenis='$jenis',stok=$stok,toko='$toko' WHERE produk_id=$produk_id") or die(mysqli_error($con));
+                 // ----------------------cek------------------------------------
+                 $cekDataProduk = mysqli_query($con,"SELECT * FROM produk WHERE nama='$nama' AND toko='$toko' AND produk_id != $produk_id");
+                 $cekData       = mysqli_fetch_assoc($cekDataProduk);
+                    if (mysqli_num_rows($cekDataProduk) > 0) {
+                        header('location:data.php');
+                        $_SESSION['pesan']		= "Gagal melakukan perbaikan data, Porduk $cekData[nama] sudah ada ditoko $cekData[toko]";
+                        $_SESSION['kondisi']	= "alert-warning";
+                    }else{
+                            $updateData = mysqli_query($con,"UPDATE produk SET nama='$nama',harga=$harga,jenis='$jenis',stok=$stok,toko='$toko' WHERE produk_id=$produk_id") or die(mysqli_error($con));
+                
+                        if ($updateData == TRUE) {
+                            header('location:data.php');
+                            $_SESSION['pesan']		= "Berhasil melakukan perbaikan data!";
+                            $_SESSION['kondisi']	= "alert-success";
+                        } else {
+                            header('location:data.php');
+                            $_SESSION['pesan']		= "Gagal melakukan perbaikan data!";
+                            $_SESSION['kondisi']	= "alert-danger";
+                        }
+                    }
 
-        if ($updateData == TRUE) {
-            header('location:data.php');
-            $_SESSION['pesan']		= "Berhasil melakukan perbaikan data!";
-            $_SESSION['kondisi']	= "alert-success";
-        } else {
-            header('location:data.php');
-            $_SESSION['pesan']		= "Gagal melakukan perbaikan data!";
-            $_SESSION['kondisi']	= "alert-danger";
-        }
     }
 ?>
