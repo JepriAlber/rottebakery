@@ -8,9 +8,35 @@ User Toko A :
 User Toko B : 
 		email:userb@gmail.com
 		pass:userb
-User Toko AB : 
+Super User Toko AB : 
 		email:userab@gmail.com
 		pass:userab
 
+ctt:
+-Super admin memiliki menu untuk menambah produk, stok produk, pengguna app, monitor transaksi, dan pengguna yang melakukan transaksi
+-User toko hanya bisa mengakses menu transaksi saja. dimana user toko hanya bisa mengakses toko yang sudah ditentukan. 
+-hanya super user yang bisa melakukan transaksi di toko a atau toko b.
+-User tidak bisa mengakses menu selain menu yang sudah di tentukan.
+-akses hanya dapat ditentukan oleh super admin.
 
+-transaksi dilakukan dengan harga produk sesuai toko.
+-transaksi tidak bisa dilakukan dengan ketentuan stok kurang dari yang dibeli.
+-transaksi tidak bisa dilakukan ketika bayaran kurang dari total belanja.
+-transaksi akan mendapatkan promo ketika melakukan pembayaran non tunai
+-inputan transaksi akan disimpan berdasarkan user yang melakukan dan toko berada
 
+-inputan email akan tersimpan dengan huruf kecil semua.
+-untuk nama pengguna tersimpan huruf besar di setiap diawal kata
+-email hanya bisa dipakai 1 user 1 email
+-perubahan data user hanya bisa dilakukan oleh super admin.
+-password menggunakan SHA1
+
+-inputan nama produk akan tersimpan huruf kapital diawal setiap kata.
+-untuk perubahan data produk dilakukan oleh super admin.
+-produk dengan nama yang sama bisa ditambah asalkan harga dan tokonya berbeda.
+-penambahan stok bisa dilakukan oleh super admin
+-satuan produk seperti :bungkus/liter dll. datanya bisa ditambah atau dikurangi oleh super admin
+
+-untuk laporan bisa dilakukan oleh user toko ataupun super admin.
+-laporan bersifat harian dan bulan.
+-laporan bulan tidak menampilkan nama produk yang sama kecuali harganya berbeda

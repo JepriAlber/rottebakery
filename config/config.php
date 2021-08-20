@@ -21,6 +21,7 @@ include_once "conn.php";
                 return $base_url;
             }
     }
+
     function generate_string($strength) {
         $input          = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $input_length   = strlen($input);
@@ -32,6 +33,7 @@ include_once "conn.php";
         
         return $random_string;
     }
+    
     function rupiah($angka){
 	
         $hasil_rupiah = "Rp " . number_format($angka,2,',','.');

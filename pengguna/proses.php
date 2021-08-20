@@ -2,8 +2,8 @@
     if (isset($_POST['simpan'])) {
         
         require_once "../config/config.php";
-            $nama       = trim(mysqli_escape_string($con,$_POST['nama']));
-            $email      = trim(mysqli_escape_string($con,$_POST['email']));
+            $nama       = ucwords(trim(mysqli_escape_string($con,$_POST['nama'])));
+            $email      = strtolower(trim(mysqli_escape_string($con,$_POST['email'])));
             $password   = sha1(trim(mysqli_escape_string($con,$_POST['password'])));
             $level       = trim(mysqli_escape_string($con,$_POST['level']));
 
@@ -28,8 +28,8 @@
         
         require_once "../config/config.php";
         $pengguna_id    = trim(mysqli_escape_string($con,$_POST['pengguna_id']));
-        $nama           = trim(mysqli_escape_string($con,$_POST['nama']));
-        $email          = trim(mysqli_escape_string($con,$_POST['email']));
+        $nama           = ucwords(trim(mysqli_escape_string($con,$_POST['nama'])));
+        $email          = strtolower(trim(mysqli_escape_string($con,$_POST['email'])));
         $level          = trim(mysqli_escape_string($con,$_POST['level']));
             
             if ($_POST['password']==null) {
