@@ -68,8 +68,8 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
                 <select class="form-control" name="tipe" id="tipe" required>
                     <option>-Pilih-</option>
                     <option value="0">Cash</option>
-                    <option value="0.15">Gopay</option>
-                    <option value="0.05">User (Toko B)</option>
+                    <option value="0.15">Gopay (15%)</option>
+                    <option value="0.05">Dana (5%)</option>
                 </select>
             </div>
             <div class="form-group" id="form-fixbayar">

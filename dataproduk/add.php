@@ -6,17 +6,19 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['login']) || $_SESSION['level'
 ?>
     <div class="container mt-2">
     <a href="data.php" class="btn-warning btn-sm btn mb-2">Kembali</a>
-        <div class="row">
-        <?php if (isset($_SESSION['pesan'])) { ?>
-        <div class="alert <?=$_SESSION['kondisi'];?> alert-dismissible show fade">
-          <div class="alert-body">
-            <button class="close" data-dismiss="alert">
-              <span>&times;</span>
-            </button>
-            <center><?=$_SESSION['pesan']; ?></center>
-          </div>
-        </div>
-     <?php } unset($_SESSION['pesan']); unset($_SESSION['kondisi']); ?>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <?php if (isset($_SESSION['pesan'])) { ?>
+                    <div class="alert <?=$_SESSION['kondisi'];?> alert-dismissible show fade">
+                    <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                        </button>
+                        <center><?=$_SESSION['pesan']; ?></center>
+                    </div>
+                    </div>
+                <?php } unset($_SESSION['pesan']); unset($_SESSION['kondisi']); ?>
+            </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">

@@ -33,10 +33,13 @@ ctt:
 
 -inputan nama produk akan tersimpan huruf kapital diawal setiap kata.
 -untuk perubahan data produk dilakukan oleh super admin.
--produk dengan nama yang sama bisa ditambah asalkan harga dan tokonya berbeda.
+-produk dengan nama yang sama bisa ditambah asalkan tokonya berbeda.
 -penambahan stok bisa dilakukan oleh super admin
 -satuan produk seperti :bungkus/liter dll. datanya bisa ditambah atau dikurangi oleh super admin
+-prubahan data produk tidak bisa dilakukan ketika namanya produknya sudah ada (produk abc ingin robah nama menjadi produk a, sedangakan produk a sudah ada di databases maka perubahan akan ditolak).
 
 -untuk laporan bisa dilakukan oleh user toko ataupun super admin.
 -laporan bersifat harian dan bulan.
 -laporan bulan tidak menampilkan nama produk yang sama kecuali harganya berbeda
+
+-Untuk aksi yang dilakukan akan selalu menampilkan pesan aksi tersebut, gagal atau berhasil

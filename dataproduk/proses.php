@@ -7,17 +7,27 @@
             $harga      = trim(mysqli_escape_string($con,$_POST['harga']));
             $jenis      = trim(mysqli_escape_string($con,$_POST['jenis']));
             $toko       = trim(mysqli_escape_string($con,$_POST['toko']));
+
+                // ----------------------cek------------------------------------
+                $cekDataProduk = mysqli_query($con,"SELECT * FROM produk WHERE nama='$nama' AND toko='$toko'");
+                $cekData       = mysqli_fetch_assoc($cekDataProduk);
+                        if (ubahString($nama) == ubahString($cekData['nama']) && $toko == $cekData['toko']) {
+                            header('location:add.php');
+                            $_SESSION['pesan']		= "Produk $nama sudah ada ditoko $toko";
+                            $_SESSION['kondisi']	= "alert-warning";
+                        }else{
+                            $simpanData = mysqli_query($con,"INSERT INTO produk(nama,harga,jenis,stok,toko) VALUE('$nama',$harga,'$jenis',$stok,'$toko')");
+                            if ($simpanData == TRUE) {
+                                header('location:data.php');
+                                $_SESSION['pesan']		= "Produk $nama berhasil ditambah!";
+                                $_SESSION['kondisi']	= "alert-success";
+                            } else {
+                                header('location:add.php');
+                                $_SESSION['pesan']		= "Produk $nama Gagal ditambah!";
+                                $_SESSION['kondisi']	= "alert-danger";
+                            }
+                        }
             
-        $simpanData = mysqli_query($con,"INSERT INTO produk(nama,harga,jenis,stok,toko) VALUE('$nama',$harga,'$jenis',$stok,'$toko')");
-        if ($simpanData == TRUE) {
-            header('location:data.php');
-            $_SESSION['pesan']		= "Data berhasil ditambah!";
-            $_SESSION['kondisi']	= "alert-success";
-        } else {
-            header('location:add.php');
-            $_SESSION['pesan']		= "Data gagal ditambah!";
-            $_SESSION['kondisi']	= "alert-danger";
-        }
 
     }elseif(isset($_POST['update'])){
 
