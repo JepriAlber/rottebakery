@@ -38,4 +38,10 @@ include_once "conn.php";
         return $hasil_rupiah;
      
     }
+
+    function ubahString($kalimat){
+        $kalimatKecil   = strtolower($kalimat);
+        $hasilKalimat   = preg_replace('/\s+/', '', $kalimatKecil);
+        return $hasilKalimat; 
+    }
 ?>

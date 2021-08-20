@@ -1,0 +1,16 @@
+SUPER ADMIN : 
+		email:kepala@gmail.com
+		pass:kepala
+
+User Toko A : 
+		email:usera@gmail.com
+		pass:usera
+User Toko B : 
+		email:userb@gmail.com
+		pass:userb
+User Toko AB : 
+		email:userab@gmail.com
+		pass:userab
+
+
+
