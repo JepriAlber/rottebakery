@@ -60,7 +60,8 @@ $dataPengguna = mysqli_query($con,"SELECT * FROM user WHERE level !=0") or die(m
                 <?php }elseif($dataPeng['level']==3){ ?>
                                <td>User (Toko B)</td>
                 <?php } ?>
-                              <td>
+                              <td align="center">
+                                  <a href="transaksi_dilakukan.php?id=<?=$dataPeng['pengguna_id'];?>&nama=<?=$dataPeng['nama'];?>" class="btn btn-primary btn-sm">Transaksi yg Dilakukan</a> |
                                   <a href="edit.php?id=<?=$dataPeng['pengguna_id'];?>" class="btn btn-warning btn-sm">Edit</a> |
                                   <a href="delete.php?id=<?=$dataPeng['pengguna_id'];?>" onclick="return confirm('Apakah yakin hapus data ini?')" class="btn btn-danger btn-sm">Delete</a>
                               </td>
