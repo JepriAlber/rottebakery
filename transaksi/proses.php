@@ -1,5 +1,6 @@
 <?php 
     if (isset($_POST['simpan'])) {
+
         require_once "../config/config.php";
         $pengguna_id        = $_SESSION['user_id'];
         $produk_id          = trim(mysqli_escape_string($con,$_POST['produk_id']));
@@ -16,7 +17,7 @@
                             $simpanTransaksi = mysqli_query($con,"INSERT INTO transaksi(produk_id,pengguna_id,stok_terjual,total_transaksi)VALUE($produk_id,$pengguna_id,$stok_terjual,$total_transaksi)");
                                 if ($simpanTransaksi) {
                                     header('location:transaksi.php');
-                                    $_SESSION['pesan']		= "Data Pengguna berhasil diubah!";
+                                    $_SESSION['pesan']		= "Transaksi berhasil dilakukan";
                                     $_SESSION['kondisi']	= "alert-success";
                                 }else{
                                     header('location:transaksi.php');
@@ -29,8 +30,5 @@
                         $_SESSION['pesan']		= "Gagal melakukan transaksi";
                         $_SESSION['kondisi']	= "alert-danger";
                     }
-            echo"<pre>";
-        print_r($dataStokProduk['stok']); die();
-        echo"</pre>";
     }
 ?>
