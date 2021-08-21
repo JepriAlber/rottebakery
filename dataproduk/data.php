@@ -54,7 +54,7 @@ $dataProduk = mysqli_query($con,"SELECT * FROM produk") or die(mysqli_error($con
                               <td><?=$no++;?></td>
                               <td><?=$datapro['nama'];?></td>
                               <td><?=$datapro['stok'];?></td>
-                              <td><?=$datapro['harga'];?>/<?=$datapro['jenis'];?></td>
+                              <td><?=rupiah($datapro['harga']);?>/<?=$datapro['jenis'];?></td>
                               <td><?=$datapro['toko'];?></td>
                               <td>
                                   <a href="addstok.php?id=<?=$datapro['produk_id'];?>" class="btn btn-primary btn-sm">Tambah Stok</a> |

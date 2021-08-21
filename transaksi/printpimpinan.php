@@ -32,6 +32,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* F
 <body>
     <div class="jarak">
         <div class="form-group">
+        <center><h2>LAPORAN TRANSAKSI HARIAN</h2></center>
             <table class="static" align="center" rules="all" border="1px" style="width:95%;">
                 <thead>
                     <tr>

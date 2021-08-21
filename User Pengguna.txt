@@ -36,9 +36,10 @@ ctt:
 -produk dengan nama yang sama bisa ditambah asalkan tokonya berbeda.
 -penambahan stok bisa dilakukan oleh super admin
 -prubahan data produk tidak bisa dilakukan ketika namanya produknya sudah ada ditoko tersebut (produk abc ditoko a ingin robah nama menjadi produk a ditoko a, sedangakan produk a dengan toko a sudah ada di databases maka perubahan akan ditolak).
+-harga akan otomatis tampil dengan format RP
 
--untuk laporan bisa dilakukan oleh user toko ataupun super admin.
--laporan bersifat harian dan bulan.
--laporan bulan tidak menampilkan nama produk yang sama kecuali harganya berbeda
+-untuk laporan bisa dilakukan oleh user toko ataupun kepala.
+-kepala bisa mencetak laporan harian dan bulanan 
+-laporan bulan tidak menampilkan nama produk yang sama kecuali tokonya berbeda
 
 -Untuk aksi yang dilakukan akan selalu menampilkan pesan aksi tersebut, gagal atau berhasil

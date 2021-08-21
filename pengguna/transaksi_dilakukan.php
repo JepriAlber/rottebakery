@@ -12,7 +12,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,produk.toko,transaksi.* F
         
 ?>
 <div class="container">
-    <a href="data.php" class="btn btn-warning mt-2 mb-2">Kembali</a>
+    <a href="data.php" class="btn btn-warning mt-2 mb-2 btn-sm">Kembali</a>
     <div class="row">
           <div class="col">
             <?php if (isset($_SESSION['pesan'])) { ?>

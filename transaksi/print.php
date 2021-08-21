@@ -4,7 +4,10 @@ $dari = $_POST['dari'];
 $sampai = $_POST['sampai'];
 $toko = $_POST['toko'];
 $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,transaksi WHERE produk.produk_id=transaksi.produk_id AND produk.toko='$toko' AND waktu between '".$dari."' and '".$sampai."' ORDER BY transaksi.waktu DESC") or die(mysqli_error($con));
-
+$data = [];
+while ($dt=mysqli_fetch_assoc($dataTransaksi)) {
+    $data[]=$dt;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +49,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
                 <tbody>
                 <?php
                       $no=1; 
-                      foreach ($dataTransaksi as $dataT) { ?>
+                      foreach ($data as $dataT) { ?>
                           <tr>
                               <td><?=$no++;?></td>
                               <td><?=$dataT['nama'];?></td>
