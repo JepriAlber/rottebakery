@@ -36,6 +36,7 @@ while ($dt=mysqli_fetch_assoc($dataTransaksi)) {
 <body>
     <div class="jarak">
         <div class="form-group">
+            <center><h2>LAPORAN TRANSAKSI HARIAN TOKO <?=$toko;?></h2></center>
             <table class="static" align="center" rules="all" border="1px" style="width:95%;">
                 <thead>
                     <tr>

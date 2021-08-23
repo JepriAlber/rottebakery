@@ -17,9 +17,9 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
 <div class="container">
     <h1>Toko : <?=$toko;?></h1>
     <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary btn-sm mt-2 mb-2" data-toggle="modal" data-target="#exampleModal">
-      Print Laporan
-    </button> -->
+    <button type="button" class="btn btn-primary btn-sm mt-2 mb-2" data-toggle="modal" data-target="#exampleModal">
+      Print Laporan Harian
+    </button>
     <div class="row">
           <div class="col">
             <?php if (isset($_SESSION['pesan'])) { ?>
@@ -73,7 +73,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
     </div>
   </div>
 </div>
-<!-- Modal
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -102,7 +102,7 @@ $dataTransaksi = mysqli_query($con,"SELECT produk.nama,transaksi.* FROM produk,t
       </form>
     </div>
   </div>
-</div> -->
+</div>
     <script type="text/javascript">
         $(document).ready( function () {
           $('#datatransaksi').DataTable();
